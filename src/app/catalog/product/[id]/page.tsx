@@ -8,6 +8,7 @@
 // "use client";
 
 import { AddToCartButton } from "./add-to-cart-button";
+import { ServerComponentToUseInClientComponent } from "./server-component-to-use-in-client-component";
 
 interface ProductProps {
   params: {
@@ -32,7 +33,9 @@ export default async function Product(props: ProductProps) {
       {/* <button onClick={handleAdd}>Adicionar ao carrinho</button> */}
       {/* As I cannot use an asynchronous component when it is a client component, I can separate what is a client from what is a server. A server component can use a component that is a server component. Since my entire component here only needs to be a client component because of the button, I can separate the components that are client components from those that are server components. that is, I can leave the part that is a server component from that which is client component, this way I only load the javascript that is necessary.
        */}
-      <AddToCartButton />
+      <AddToCartButton>
+        <ServerComponentToUseInClientComponent />
+      </AddToCartButton>
     </>
   );
 }
