@@ -1,3 +1,7 @@
+//o layout é um componente que sempre irá receber a prop children e terá que utilizar esse children em algum lugar.
+// esse layout que temos dentro da pasta app nós nunca iremos deleta-lo. ele funciona como um layout para toda a aplicação. um layout é um wrapper. toda a minha aplicação estará dentro do meu layout.ou seja, a minha página com o hello world (Home), o conteúdo dela está sendo exibido dentro do layout. então o layout é o conteúdo inicial (principal) que o next abre e o conteúdo das outrás páginas vem dentro do children. se eu colocar um cabeçalho dentro do body (antes ou depois do children), ele irá aparecer em todas as páginas, pois ele é um layout global (por isso o nome de RootLayout).
+//o next é muito dinâmico, então se eu tiver um layout que é compartilhado somente em uma rota (dentro apenas de uma página), eu posso criar um layout.tsx dentro da pasta que é referente e rota, e esse layout será exibido somente nessa rota (para controlar em quais rotas o layout é exibido, basta ver em qual nível o arquivo está)
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div>Cabeçalho</div>
+        {children}
+      </body>
     </html>
   );
 }
