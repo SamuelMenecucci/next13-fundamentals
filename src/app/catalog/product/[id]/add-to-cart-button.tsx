@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 
+//The smaller the components that use client the better. as it means I'm sending less javascript to the browser. the less javascript for the browser, the faster the application
 export function AddToCartButton() {
   const [count, setCount] = useState(0);
 
